@@ -3,7 +3,7 @@
 A design-first vibe-coding platform for both non-technical and technical users
 — built for the Lyzr "Build your own vibe-coding platform" assignment.
 
-**Live app:** _added after deploy_
+**Live app:** [architect20.vercel.app](https://architect20.vercel.app)
 **Architecture:** see [`ARCHITECTURE.md`](./ARCHITECTURE.md) and
 [`architecture-diagram.png`](./architecture-diagram.png) for how this would
 actually be built in production (sandboxes, agent harness, model-agnostic

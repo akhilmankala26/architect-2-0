@@ -1,0 +1,176 @@
+<svg width="1740" height="1020" viewBox="0 0 1740 1020" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text{font-family:"Segoe UI",Arial,Helvetica,sans-serif;}
+    .box{fill:#ffffff;stroke:#e4e4e7;stroke-width:1.5;}
+    .box-hub{fill:#ffffff;stroke:#6366f1;stroke-width:2;}
+    .box-data{fill:#f4f4f5;stroke:#d4d4d8;stroke-width:1.2;}
+    .box-leaf{fill:#eef2ff;stroke:#c7d2fe;stroke-width:1.2;}
+    .title{font-size:15px;font-weight:700;fill:#18181b;}
+    .sub{font-size:11.5px;fill:#71717a;}
+    .tag{font-size:10px;font-weight:700;fill:#6366f1;letter-spacing:.06em;}
+    .arrow{stroke:#a1a1aa;stroke-width:1.8;fill:none;marker-end:url(#arrow);}
+    .arrow-fanout{stroke:#6366f1;stroke-width:1.8;fill:none;marker-end:url(#arrowIndigo);}
+    .arrow-preview{stroke:#10b981;stroke-width:2;fill:none;stroke-dasharray:6 5;marker-end:url(#arrowGreen);}
+    .lane-label{font-size:12px;font-weight:700;fill:#a1a1aa;letter-spacing:.08em;}
+    .obs{fill:none;stroke:#d4d4d8;stroke-width:1.5;stroke-dasharray:5 5;}
+    .obs-label{font-size:11px;fill:#a1a1aa;font-weight:600;}
+    .legend-text{font-size:11.5px;fill:#52525b;}
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#a1a1aa"/></marker>
+    <marker id="arrowIndigo" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#6366f1"/></marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#10b981"/></marker>
+  </defs>
+
+  <rect width="1740" height="1020" fill="#fafafa"/>
+
+  <text x="40" y="38" font-size="20" font-weight="700" fill="#18181b">Architect 2.0 — Service Architecture</text>
+  <text x="40" y="58" font-size="12.5" fill="#71717a">Prompt &#8594; plan &#8594; sandbox &#8594; live preview &#8594; GitHub &#8594; deploy</text>
+
+  <rect class="obs" x="20" y="330" width="1700" height="440" rx="16"/>
+  <text class="obs-label" x="1500" y="355">traced end-to-end (OpenTelemetry)</text>
+
+  <g>
+    <rect class="box-hub" x="600" y="80" width="540" height="72" rx="12"/>
+    <text class="tag" x="622" y="102">CLIENT</text>
+    <text class="title" x="622" y="124">Browser SPA (React)</text>
+    <text class="sub" x="622" y="142">Chat &#183; Plan/Agents/App tabs &#183; live preview iframe</text>
+  </g>
+
+  <g>
+    <rect class="box-hub" x="600" y="192" width="540" height="72" rx="12"/>
+    <text class="tag" x="622" y="214">EDGE (CLOUDFLARE)</text>
+    <text class="title" x="622" y="236">Edge Proxy</text>
+    <text class="sub" x="622" y="254">TLS &#183; per-user auth &#183; rate limits &#183; watermark inject &#183; preview routing</text>
+  </g>
+  <path class="arrow" d="M870,152 L870,192" />
+  <path class="arrow" d="M865,264 L865,152" />
+
+  <g>
+    <rect class="box-hub" x="480" y="304" width="360" height="72" rx="12"/>
+    <text class="tag" x="502" y="326">CONTROL PLANE</text>
+    <text class="title" x="502" y="348">Backend API</text>
+    <text class="sub" x="502" y="366">Stateless &#183; horizontally scaled</text>
+  </g>
+  <path class="arrow" d="M690,304 L860,264" />
+
+  <g>
+    <rect class="box-data" x="900" y="312" width="170" height="56" rx="8"/>
+    <text class="title" x="918" y="335" font-size="13">Postgres</text>
+    <text class="sub" x="918" y="352" font-size="10.5">users &#183; projects &#183; billing</text>
+  </g>
+  <path class="arrow" d="M840,330 L900,335" />
+
+  <g>
+    <rect class="box-data" x="1090" y="312" width="170" height="56" rx="8"/>
+    <text class="title" x="1108" y="335" font-size="13">Redis Streams</text>
+    <text class="sub" x="1108" y="352" font-size="10.5">job queue &#183; pub/sub</text>
+  </g>
+  <path class="arrow" d="M840,340 L1090,343" />
+
+  <g>
+    <rect class="box-data" x="1280" y="312" width="200" height="56" rx="8"/>
+    <text class="title" x="1298" y="335" font-size="13">R2 / S3 Object Store</text>
+    <text class="sub" x="1298" y="352" font-size="10.5">build artifacts &#183; deploys</text>
+  </g>
+  <path class="arrow" d="M840,350 L1280,351" />
+
+  <path class="arrow-fanout" d="M600,352 C 420,400 300,400 230,438" />
+  <path class="arrow-fanout" d="M650,376 L650,438" />
+  <path class="arrow-fanout" d="M760,368 C 850,400 950,400 1070,438" />
+  <path class="arrow-fanout" d="M840,340 C 1200,380 1400,400 1490,438" />
+
+  <text class="lane-label" x="230" y="418" text-anchor="middle">AI / REASONING</text>
+  <text class="lane-label" x="650" y="418" text-anchor="middle">GITHUB</text>
+  <text class="lane-label" x="1070" y="418" text-anchor="middle">DEPLOY</text>
+  <text class="lane-label" x="1490" y="418" text-anchor="middle">SANDBOX &amp; PREVIEW</text>
+
+  <g>
+    <rect class="box" x="40" y="438" width="380" height="72" rx="10"/>
+    <text class="title" x="60" y="460" font-size="14">Orchestrator Worker</text>
+    <text class="sub" x="60" y="478">Plans, then delegates to ui_generator /</text>
+    <text class="sub" x="60" y="493">backend_generator sub-agents</text>
+  </g>
+  <path class="arrow" d="M230,510 L230,548" />
+  <g>
+    <rect class="box" x="40" y="548" width="380" height="72" rx="10"/>
+    <text class="title" x="60" y="572" font-size="14">Model Gateway (LiteLLM)</text>
+    <text class="sub" x="60" y="590">One schema in, per-provider translation + fallback out</text>
+  </g>
+  <path class="arrow" d="M230,620 L230,658" />
+  <g>
+    <rect class="box-leaf" x="40" y="658" width="380" height="60" rx="10"/>
+    <text class="title" x="60" y="682" font-size="13">Claude &#183; GPT-5.1 &#183; Gemini &#183; OSS (vLLM)</text>
+    <text class="sub" x="60" y="700" font-size="10.5">swap = change a model string, not code</text>
+  </g>
+
+  <g>
+    <rect class="box" x="460" y="438" width="380" height="72" rx="10"/>
+    <text class="title" x="480" y="462" font-size="14">GitHub Sync Worker</text>
+    <text class="sub" x="480" y="480">Reads changed files straight from the sandbox FS</text>
+  </g>
+  <path class="arrow" d="M650,510 L650,548" />
+  <g>
+    <rect class="box" x="460" y="548" width="380" height="72" rx="10"/>
+    <text class="title" x="480" y="572" font-size="14">GitHub API (Octokit)</text>
+    <text class="sub" x="480" y="590">Git Data API: tree &#8594; commit &#8594; ref update</text>
+  </g>
+  <path class="arrow" d="M650,620 L650,658" />
+  <g>
+    <rect class="box-leaf" x="460" y="658" width="380" height="60" rx="10"/>
+    <text class="title" x="480" y="682" font-size="13">User's GitHub Repo</text>
+    <text class="sub" x="480" y="700" font-size="10.5">auto-synced every successful build step</text>
+  </g>
+
+  <g>
+    <rect class="box" x="880" y="438" width="380" height="72" rx="10"/>
+    <text class="title" x="900" y="462" font-size="14">Deploy Worker</text>
+    <text class="sub" x="900" y="480">Production build in a fresh sandbox, never the dev one</text>
+  </g>
+  <path class="arrow" d="M1070,510 L1070,548" />
+  <g>
+    <rect class="box" x="880" y="548" width="380" height="72" rx="10"/>
+    <text class="title" x="900" y="572" font-size="14">CDN + Object Store  /  Fly.io &#183; Cloud Run</text>
+    <text class="sub" x="900" y="590">Static apps &#8594; CDN. Apps with a backend &#8594; containers</text>
+  </g>
+  <path class="arrow" d="M1070,620 L1070,658" />
+  <g>
+    <rect class="box-leaf" x="880" y="658" width="380" height="60" rx="10"/>
+    <text class="title" x="900" y="682" font-size="13">Live Deployed App</text>
+    <text class="sub" x="900" y="700" font-size="10.5">permanent URL, resource-capped not time-capped</text>
+  </g>
+
+  <g>
+    <rect class="box" x="1300" y="438" width="380" height="72" rx="10"/>
+    <text class="title" x="1320" y="462" font-size="14">Sandbox Orchestrator</text>
+    <text class="sub" x="1320" y="480">Picks WebContainer vs. a real VM as needed</text>
+  </g>
+  <path class="arrow" d="M1490,510 L1490,548" />
+  <g>
+    <rect class="box" x="1300" y="548" width="380" height="72" rx="10"/>
+    <text class="title" x="1320" y="570" font-size="13.5">WebContainer (in-browser)</text>
+    <text class="sub" x="1320" y="586" font-size="10.5">static/Vite apps — ~1s boot, zero server cost</text>
+    <text class="title" x="1320" y="605" font-size="13.5">E2B Firecracker Pool</text>
+    <text class="sub" x="1320" y="614" font-size="10.5">real FS/network/DB — ~125ms VM boot</text>
+  </g>
+  <path class="arrow" d="M1490,620 L1490,658" />
+  <g>
+    <rect class="box-leaf" x="1300" y="658" width="380" height="60" rx="10"/>
+    <text class="title" x="1320" y="682" font-size="13">Generated App (dev server)</text>
+    <text class="sub" x="1320" y="700" font-size="10.5">the actual running app being previewed</text>
+  </g>
+
+  <path class="arrow-preview" d="M1680,688 C 1720,500 1720,260 1145,228" />
+  <text x="1600" y="470" font-size="11" fill="#10b981" font-weight="600" transform="rotate(90 1600 470)">signed preview URL</text>
+
+  <g transform="translate(40,880)">
+    <rect x="0" y="0" width="640" height="110" rx="12" fill="#ffffff" stroke="#e4e4e7"/>
+    <text x="18" y="26" font-size="12" font-weight="700" fill="#18181b">Legend</text>
+    <line x1="18" y1="48" x2="70" y2="48" class="arrow"/>
+    <text class="legend-text" x="80" y="52">Control-plane call (request/response or queued job)</text>
+    <line x1="18" y1="72" x2="70" y2="72" class="arrow-fanout"/>
+    <text class="legend-text" x="80" y="76">Backend API dispatching work to a worker</text>
+    <line x1="18" y1="96" x2="70" y2="96" class="arrow-preview"/>
+    <text class="legend-text" x="80" y="100">Live preview traffic (iframe &#8594; sandbox, via signed URL)</text>
+  </g>
+</svg>
